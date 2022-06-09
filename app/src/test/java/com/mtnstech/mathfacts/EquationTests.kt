@@ -11,13 +11,27 @@ class EquationTests {
     fun equation_CheckRightAnswerTest(){
         val equation = Equation(1,2,3, Operation.ADDITION)
 
-        assertTrue (equation.verifyAnswer(3))
+        assertTrue (equation.submitAnswer(3))
     }
 
     @Test
     fun equation_CheckWrongAnswerTest(){
         val equation = Equation(1,2,3, Operation.ADDITION)
 
-        assertFalse(equation.verifyAnswer(4))
+        assertFalse(equation.submitAnswer(4))
+    }
+
+    @Test
+    fun equation_CheckRightAnswerTest_CorrectStatus(){
+        val equation = Equation(1,2,3, Operation.ADDITION)
+        equation.submitAnswer(3)
+        assertTrue(equation.correct())
+    }
+
+    @Test
+    fun equation_CheckWrongAnswerTest_CorrectStatus(){
+        val equation = Equation(1,2,3, Operation.ADDITION)
+        equation.submitAnswer(4)
+        assertFalse(equation.correct())
     }
 }
