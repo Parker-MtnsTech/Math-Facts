@@ -8,12 +8,12 @@ import org.junit.Assert.*
 class DivisionEquationFactoryTests {
     @Test
     fun divisionEquationFactory_GenerateEquation() {
-        val maxNumber = 10
+        val maxNumber = 100
         val factory = DivisionEquationFactory()
         val equation = factory.generateEquation(maxNumber)
         assertTrue(equation.operation == Operation.DIVISION)
         assertTrue(equation.firstNumber <= maxNumber && equation.secondNumber <= maxNumber)
-        assertTrue(equation.firstNumber >= 0 && equation.secondNumber > 0)
+        assertTrue("Numbers were bad! firstNumber = ${equation.firstNumber} secondNumber = ${equation.secondNumber}", equation.firstNumber >= 0 && equation.secondNumber > 0)
     }
 
     @Test
